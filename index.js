@@ -1,6 +1,4 @@
-const { BrowserWindow, app, crashReporter } = require("electron");
-const path = require('path')
-// let segfaultHandler = require(`segfault-handler`);
+const { BrowserWindow, app } = require("electron");
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
@@ -12,7 +10,7 @@ const createWindow = () => {
     },
     show: false,
   });
-  mainWindow.loadURL("http://localhost:8088")
+  mainWindow.loadURL("http://localhost:8088/")
   mainWindow.webContents.on('render-process-gone', (event, details) => {
     console.log('Window - Render process gone', {
       event,
@@ -22,13 +20,7 @@ const createWindow = () => {
     });
   });
 }
-app.setPath('crashDumps', '/Users/tn185075/electron-edge-id/crashes')
-crashReporter.start({
-  uploadToServer: false,
-})
-// console.log(path.join(app.getPath('temp'), app.getName() + ' Crashes'))
 app.on('ready', () => {
-  // segfaultHandler.registerHandler()
   createWindow();
 });
 app.on('render-process-gone', (_event, webContents, details) => {
@@ -40,4 +32,3 @@ app.on('render-process-gone', (_event, webContents, details) => {
     webContents.reload();
   }
 });
-// process.crash()

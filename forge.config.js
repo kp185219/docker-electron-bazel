@@ -4,23 +4,24 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 module.exports = {
   packagerConfig: {
     asar: true,
+	ignore: [
+		"^/node_modules",
+		"^/.git",
+		".DS_Store",
+		".gitignore",
+		"README.md",
+	]
   },
   rebuildConfig: {},
   makers: [
     {
-      name: '@electron-forge/maker-squirrel',
+      name: '@electron-forge/maker-deb',
+      platforms: ['linux'],
       config: {},
     },
     {
       name: '@electron-forge/maker-zip',
       platforms: ['darwin'],
-    },
-    {
-      name: '@electron-forge/maker-deb',
-      config: {},
-    },
-    {
-      name: '@electron-forge/maker-rpm',
       config: {},
     },
   ],
