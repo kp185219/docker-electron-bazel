@@ -1,5 +1,5 @@
 {
-  "name": "electron-edge-id",
+  "name": "electron-docker",
   "version": "1.0.0",
   "description": "Electron.js app to wrap test-client",
   "main": "index.js",
