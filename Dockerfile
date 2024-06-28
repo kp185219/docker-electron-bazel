@@ -11,4 +11,4 @@ RUN rm -rf node_modules/ ./package-lock.json ./package.json ./index.js ./forge.c
 RUN mv out/*/** ./
 RUN rm -rf out/
 
-CMD ["./electron-docker"]
+CMD ["./electron-docker", "--no-sandbox"]
