@@ -3,6 +3,8 @@ out
 .DS_Store
 Dockerfile
 .dockerignore
+bazel-*
 .git
 README.md
 .gitignore
+.bazelversion
