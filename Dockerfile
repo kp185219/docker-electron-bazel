@@ -9,6 +9,5 @@ RUN rm -rf node_modules/ ./package-lock.json ./package.json ./index.js ./forge.c
 RUN mv out/*/** ./
 RUN rm -rf out/
 
-RUN service dbus start
+CMD service dbus start && ./electron-docker --no-sandbox
 
-CMD ["./electron-docker", "--no-sandbox"]
