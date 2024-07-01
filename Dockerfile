@@ -9,4 +9,4 @@ RUN rm -rf node_modules/ ./package-lock.json ./package.json ./index.js ./forge.c
 RUN mv out/*/** ./
 RUN rm -rf out/
 
-CMD service dbus start && su node && ./electron-docker
+CMD service dbus start && su node -c './electron-docker'
